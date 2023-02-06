@@ -1,0 +1,57 @@
+.root {
+    height: 100vh;
+    width: 100vw;
+    background-color: #383838;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginCard {
+    background-color: #eeeeee;
+    padding: 32px;
+    border-radius: 32px;
+}
+
+
+
+.buttonWrapper {
+    display: flex;
+    justify-content: center;
+
+    button {
+        border: none;
+        background-color: #fff;
+        padding: 8px;
+        border-radius: 4px;
+        transition: 200ms;
+    }
+
+    button:hover {
+        background-color: #c7c7c7;
+    }
+}
+
+.cardTitle {
+    font-weight: 700;
+    font-size: 16px;
+    transition: 200ms;
+}
+
+
+.cadastroInvite {
+    font-size: 14px;
+    font-weight: 500;
+
+    span {
+        padding-left: 4px;
+
+        &:hover {
+
+            cursor: pointer;
+        }
+    }
+
+}

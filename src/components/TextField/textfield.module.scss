@@ -1,0 +1,20 @@
+.verticalizeLabel {
+    display: flex;
+    flex-direction: column;
+}
+
+.labelContent {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+
+.textField {
+    width: 240px;
+    border: none;
+    outline: none;
+    padding: 16px;
+    border-radius: 4px;
+    font-size: 16px;
+
+}
