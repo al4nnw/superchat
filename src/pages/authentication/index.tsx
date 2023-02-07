@@ -6,29 +6,20 @@ import Spacer from "../../components/Spacer";
 import TextField from "../../components/TextField";
 import { TextFieldController } from "../../components/TextField";
 import styles from "./authentication.module.scss";
-
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { auth } from "../../App";
-
+import { browserLocalPersistence, setPersistence } from "firebase/auth";
 const nomeController = new TextFieldController<string>("");
 const emailController = new TextFieldController<string>("");
 const pwdController = new TextFieldController<string>("");
+
 export default function Authentication() {
 	const [isLogin, setIsLogin] = useState(true);
-	const [createUser] = useCreateUserWithEmailAndPassword(auth);
+	const [createUser, user] = useCreateUserWithEmailAndPassword(auth);
 	const [signIn] = useSignInWithEmailAndPassword(auth);
-
-	function validateForm(): boolean {
-		const nome = nomeController.value;
-		const email = emailController.value;
-		const pwd = pwdController.value;
-
-		if (email === "" || pwd === "" || (!isLogin && nome === "")) {
-			alert("Preencha as informações");
-			return false;
-		}
-		return true;
-	}
+	const navigate = useNavigate();
+	let lembrarSenha = false;
 
 	return (
 		<div className={styles.root}>
@@ -70,7 +61,20 @@ export default function Authentication() {
 						hint={"Digite a sua senha"}
 					/>
 				</form>
-				<Spacer height={24} />
+				<Spacer height={8} />
+
+				{isLogin ? (
+					<div>
+						<input
+							type="checkbox"
+							onChange={(event) => (lembrarSenha = event.target.checked)}
+						/>{" "}
+						Lembrar senha
+					</div>
+				) : (
+					""
+				)}
+				<Spacer height={16} />
 
 				<div className={styles.cadastroInvite}>
 					{isLogin ? "Não é cadastrado ainda?" : "Já é cadastrado?"}
@@ -89,25 +93,48 @@ export default function Authentication() {
 				<Spacer height={16} />
 
 				<div className={styles.buttonWrapper}>
-					<button
-						onClick={async () => {
-							if (validateForm()) {
-								const email = emailController.value;
-								const password = pwdController.value;
-								if (isLogin) {
-									await signIn(email, password);
-									alert("Login efetuado com sucesso.");
-								} else {
-									await createUser(email, password);
-									alert("Cadastro realizado com sucesso.");
-								}
-							}
-						}}
-					>
+					<button onClick={onButtonClick}>
 						{isLogin ? "Login" : "Cadastrar"}
 					</button>
 				</div>
 			</section>
 		</div>
 	);
+
+	function validateForm(): boolean {
+		const nome = nomeController.value;
+		const email = emailController.value;
+		const pwd = pwdController.value;
+
+		if (email === "" || pwd === "" || (!isLogin && nome === "")) {
+			alert("Preencha as informações");
+			return false;
+		}
+		return true;
+	}
+
+	async function onButtonClick() {
+		if (validateForm()) {
+			const email = emailController.value;
+			const password = pwdController.value;
+			if (isLogin) {
+				if (lembrarSenha) {
+					console.log("User wants to remember password");
+					await setPersistence(auth, browserLocalPersistence);
+				}
+				signIn(email, password)
+					.then((value) => {
+						console.log(value);
+						localStorage.setItem("user", JSON.stringify(value));
+						navigate("/");
+					})
+					.catch((error) => {
+						alert(error.message);
+					});
+			} else {
+				await createUser(email, password);
+				alert("Cadastro efetuado com sucesso.");
+			}
+		}
+	}
 }

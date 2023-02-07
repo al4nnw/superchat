@@ -1,0 +1,12 @@
+@import "/src/utils/vars.module.scss";
+
+.root {
+    background-color: $bgColor;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 48px;
+    color: white
+}

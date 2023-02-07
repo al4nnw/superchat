@@ -6,7 +6,8 @@ import "firebase/database";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/home";
 import Authentication from "./pages/authentication";
-import RequireAuthRoute from "./components/PrivateRoute";
+import { useAuthState } from "react-firebase-hooks/auth";
+import Loading from "./components/Loading";
 
 const firebaseConfig = {
 	/* apiKey: process.env.APIKEY,
@@ -29,18 +30,17 @@ const app = firebase.initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 
 const App: React.FC = () => {
+	const [user, loading, error] = useAuthState(auth);
+	if (loading) {
+		return <Loading />;
+	}
+	if (error) {
+		alert(error?.message);
+	}
 	return (
 		<Router>
 			<Routes>
-				<Route path="/login" element={<Authentication />} />
-				<Route
-					path="/"
-					element={
-						<RequireAuthRoute>
-							<Home />
-						</RequireAuthRoute>
-					}
-				></Route>
+				<Route path="/" element={user ? <Home /> : <Authentication />}></Route>
 			</Routes>
 		</Router>
 	);
