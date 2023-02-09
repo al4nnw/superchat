@@ -1,0 +1,19 @@
+.messageCard {
+    margin: 12px;
+    border-radius: 12px 12px 12px 0px;
+
+    padding: 12px;
+    min-width: 240px;
+    width: min-content;
+    max-width: 480px;
+    background-color: #dedede;
+}
+
+.messageHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-weight: 700;
+    color: #0000007d;
+    margin-bottom: 8px;
+}

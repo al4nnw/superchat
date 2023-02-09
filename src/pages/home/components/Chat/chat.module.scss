@@ -1,0 +1,107 @@
+@import "/src/utils/vars.module.scss";
+
+
+$firstBlockHeight: 36px;
+
+.root {
+    background-color: #4B4B4B;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+
+
+.headerIconWrapper {
+    background-color: $secondary;
+    border-radius: 1000px;
+    height: $firstBlockHeight;
+    width: $firstBlockHeight;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+
+.headerFirstPartWrapper {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+}
+
+.talkingTo {
+    color: white;
+    font-size: 18px;
+    height: $firstBlockHeight;
+    display: flex;
+    align-items: center;
+    background-color: $secondary;
+
+    padding: 0 24px;
+    border-radius: 1000px;
+}
+
+
+.chatHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px;
+    background-color: $primary;
+
+}
+
+
+.messagesChat {
+    flex-grow: 100;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+        width: 0.5em;
+        background-color: $primary;
+        border-radius: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        border-radius: 4px;
+        background-color: $secondary;
+    }
+}
+
+.mainInputWrapper {
+    width: 99.9%;
+    height: 10vh;
+
+    background-color: $secondary;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    input {
+
+        border: none;
+        outline: none;
+        width: 90%;
+        height: 4vh;
+        padding: 4px 16px;
+        background-color: #aaaaaa;
+        border-radius: 1000px;
+
+        transition: background-color $duration;
+
+        &:focus {
+            background-color: #bdbdbd8a;
+        }
+
+        &::placeholder {
+            color: #fff;
+        }
+    }
+}

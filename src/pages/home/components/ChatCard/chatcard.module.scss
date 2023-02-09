@@ -1,0 +1,36 @@
+.root {
+    padding: 16px;
+    background-color: #4B4B4B;
+
+    transition: background-color 300ms ease-out;
+
+    &:hover {
+        cursor: pointer;
+        background-color: #5b5b5b;
+    }
+
+}
+
+
+.content {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+
+    h3 {
+        margin: 0;
+        color: #fff;
+    }
+}
+
+.messagePreview {
+    max-width: 20vw;
+    min-width: 10vw;
+    color: #fff;
+}
+
+
+
+.time {
+    color: #fff;
+}

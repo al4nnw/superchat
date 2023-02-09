@@ -1,0 +1,65 @@
+@import "/src/utils/vars.module.scss";
+
+.root {
+    background-color: $bgColor;
+    height: 100vh;
+}
+
+
+header {
+
+    height: 19vh;
+}
+
+.headerNav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 11vh;
+    padding-left: 24px;
+    padding-right: 24px;
+    background-color: $primary;
+}
+
+
+.contentRoot {
+    height: 81vh;
+
+    display: flex;
+}
+
+
+.chatRoot {
+    width: 100%;
+}
+
+.contacts {
+    width: 50%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+        width: 0.5em;
+        background-color: $primary;
+        border-radius: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        border-radius: 4px;
+        background-color: $secondary;
+    }
+}
+
+body textarea::-webkit-scrollbar {
+    width: 0.3rem;
+    background-color: $primary;
+}
+
+body::-webkit-scrollbar-track,
+textarea body::-webkit-scrollbar-thumb,
+textarea::-webkit-scrollbar-thumb {
+    background-color: $secondary;
+    outline: none;
+    border: none;
+}
