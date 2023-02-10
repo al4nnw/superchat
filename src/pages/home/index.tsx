@@ -2,8 +2,10 @@ import Logo from "../../components/Logo";
 import Chat from "./components/Chat";
 import ChatCard from "./components/ChatCard";
 import ProfilePill from "./components/ProfilePill";
-import SearchBar from "./components/SearchBar";
+import SearchBar from "./components/MainInput";
 import styles from "./home.module.scss";
+
+import SearchIcon from "@mui/icons-material/Search";
 
 export default function Home() {
 	return (
@@ -14,7 +16,12 @@ export default function Home() {
 					{Logo()}
 					{ProfilePill()}
 				</nav>
-				{SearchBar()}
+				{SearchBar({
+					id: "searchBar",
+					icon: SearchIcon,
+					placeholder: "Procure seus amigos",
+					onSubmit: (value) => console.log(value),
+				})}
 			</header>
 			<div className={styles.contentRoot}>
 				<div className={styles.contacts}>

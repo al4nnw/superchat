@@ -2,7 +2,9 @@ import UserPhoto from "../../../../components/UserPhoto";
 import styles from "./chat.module.scss";
 
 import CloseIcon from "@mui/icons-material/Close";
+import SendIcon from "@mui/icons-material/Send";
 import Message from "./components/Message";
+import MainInput from "../MainInput";
 
 export default function Chat() {
 	return (
@@ -29,9 +31,12 @@ export default function Chat() {
 				{Message()}
 				{Message()}
 			</div>
-			<div className={styles.mainInputWrapper}>
-				<input type="text" placeholder="Escreva sua mensagem" />
-			</div>
+			{MainInput({
+				id: "chatInput",
+				icon: SendIcon,
+				placeholder: "Escreva uma mensagem",
+				onSubmit: (value) => console.log(value),
+			})}
 		</div>
 	);
 }

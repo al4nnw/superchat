@@ -1,0 +1,62 @@
+[
+    {
+        "id": "1",
+        "name": "John Doe",
+        "email": "johndoe@example.com",
+        "photo": {
+            "small": "https://example.com/small_john_doe.jpg",
+            "medium": "https://example.com/medium_john_doe.jpg",
+            "high": "https://example.com/high_john_doe.jpg"
+        },
+        "countMessagesSent": 12,
+        "countMessagesReceived": 25
+    },
+    {
+        "id": "2",
+        "name": "Jane Doe",
+        "email": "janedoe@example.com",
+        "photo": {
+            "small": "https://example.com/small_jane_doe.jpg",
+            "medium": "https://example.com/medium_jane_doe.jpg",
+            "high": "https://example.com/high_jane_doe.jpg"
+        },
+        "countMessagesSent": 30,
+        "countMessagesReceived": 12
+    },
+    {
+        "id": "3",
+        "name": "Bob Smith",
+        "email": "bobsmith@example.com",
+        "photo": {
+            "small": "https://example.com/small_bob_smith.jpg",
+            "medium": "https://example.com/medium_bob_smith.jpg",
+            "high": "https://example.com/high_bob_smith.jpg"
+        },
+        "countMessagesSent": 5,
+        "countMessagesReceived": 8
+    },
+    {
+        "id": "4",
+        "name": "Alice Johnson",
+        "email": "alicejohnson@example.com",
+        "photo": {
+            "small": "https://example.com/small_alice_johnson.jpg",
+            "medium": "https://example.com/medium_alice_johnson.jpg",
+            "high": "https://example.com/high_alice_johnson.jpg"
+        },
+        "countMessagesSent": 20,
+        "countMessagesReceived": 15
+    },
+    {
+        "id": "5",
+        "name": "Charlie Brown",
+        "email": "charliebrown@example.com",
+        "photo": {
+            "small": "https://example.com/small_charlie_brown.jpg",
+            "medium": "https://example.com/medium_charlie_brown.jpg",
+            "high": "https://example.com/high_charlie_brown.jpg"
+        },
+        "countMessagesSent": 15,
+        "countMessagesReceived": 20
+    }
+]

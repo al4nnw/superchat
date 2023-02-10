@@ -1,7 +1,10 @@
-.searchBarWrapper {
+@import "/src/utils/vars.module.scss";
+
+.barWrapper {
     position: relative;
     background-color: #7B7B7B;
-    height: 8vh;
+    padding-top: 1.5vh;
+    padding-bottom: 1.5vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,7 +12,7 @@
     padding-right: 16px;
 }
 
-.searchField {
+.field {
     border-radius: 48px;
     border: none;
     outline: none;
@@ -23,11 +26,11 @@
     transition: background-color 300ms;
 }
 
-.searchField::placeholder {
+.field::placeholder {
     color: #fff
 }
 
-.searchField:focus {
+.field:focus {
     background-color: #8b8b8b;
 }
 
@@ -36,6 +39,12 @@
     top: 35%;
     right: 32px;
 
+    transition: $duration;
+
+    &:hover {
+        cursor: pointer;
+        transform: scale(1.1);
+    }
 
     svg {
         color: #fff;

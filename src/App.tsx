@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import * as firebase from "firebase/app";
 import { getAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
 import "firebase/database";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/home";
@@ -28,6 +29,7 @@ const firebaseConfig = {
 
 const app = firebase.initializeApp(firebaseConfig);
 export const auth = getAuth(app);
+export const firestore = getFirestore(app);
 
 const App: React.FC = () => {
 	const [user, loading, error] = useAuthState(auth);
