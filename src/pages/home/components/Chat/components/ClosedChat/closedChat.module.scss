@@ -1,0 +1,15 @@
+@import "/src/utils/vars.module.scss";
+
+.root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.mainCard {
+    background-color: $secondary;
+    color: #fff;
+    padding: 24px;
+    border-radius: 8px;
+}
