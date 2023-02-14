@@ -6,6 +6,7 @@ import styles from "./home.module.scss";
 
 import SearchIcon from "@mui/icons-material/Search";
 import ChatRoot from "./components/Chat/routing";
+import ContactsPanel from "./components/ContactsPanel";
 
 export default function Home() {
 	return (
@@ -27,18 +28,7 @@ export default function Home() {
 				})}
 			</header>
 			<div className={styles.contentRoot}>
-				<div className={styles.contacts}>
-					{ChatCard()}
-					{ChatCard()}
-					{ChatCard()}
-					{ChatCard()}
-					{ChatCard()}
-					{ChatCard()}
-					{ChatCard()}
-					{ChatCard()}
-					{ChatCard()}
-					{ChatCard()}
-				</div>
+				<ContactsPanel />
 				<div className={styles.chatRoot}>{ChatRoot()}</div>
 			</div>
 		</div>
