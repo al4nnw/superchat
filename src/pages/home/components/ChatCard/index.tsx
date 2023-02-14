@@ -1,9 +1,15 @@
+import { useDispatch } from "react-redux";
 import UserPhoto from "../../../../components/UserPhoto";
+import { Chat } from "../../../../models/chat";
+import { useAppDispatch } from "../../../../redux/hooks";
+import { setOnChat } from "../../../../redux/slices/panelSlice";
 import styles from "./chatcard.module.scss";
 
-export default function ChatCard() {
+const ChatCard = (): JSX.Element => {
+	const dispatch = useAppDispatch();
+	const chat: Chat = new Chat(["dkfjdlk", "df"], "", "", "");
 	return (
-		<div className={styles.root}>
+		<div className={styles.root} onClick={() => dispatch(setOnChat(chat))}>
 			<div className={styles.content}>
 				{UserPhoto()}
 				<div>
@@ -19,4 +25,6 @@ export default function ChatCard() {
 			</div>
 		</div>
 	);
-}
+};
+
+export default ChatCard;

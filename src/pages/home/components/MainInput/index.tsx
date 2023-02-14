@@ -6,7 +6,8 @@ import { useState } from "react";
 export default function MainInput(props: {
 	placeholder?: string;
 	iconButtonAriaLabel?: string;
-	onSubmit: (value: string) => void;
+	/// Resets value if return is true
+	onSubmit: (value: string) => boolean;
 	id: string;
 	initialValue?: string;
 	icon: OverridableComponent<SvgIconTypeMap<{}, "svg">>;
@@ -19,7 +20,9 @@ export default function MainInput(props: {
 				onInput={(e) => setInput((e.target as HTMLInputElement).value)}
 				onKeyUp={(event) => {
 					if (event.key === "Enter") {
-						props.onSubmit(input);
+						if (props.onSubmit(input)) {
+							setInput("");
+						}
 					}
 				}}
 				className={styles.field}
@@ -29,7 +32,9 @@ export default function MainInput(props: {
 			<div
 				className={styles.iconWrapper}
 				onClick={(event) => {
-					return props.onSubmit(input);
+					if (props.onSubmit(input)) {
+						setInput("");
+					}
 				}}
 				aria-label={props.iconButtonAriaLabel}
 			>

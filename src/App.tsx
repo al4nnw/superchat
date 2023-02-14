@@ -29,7 +29,7 @@ const firebaseConfig = {
 
 const app = firebase.initializeApp(firebaseConfig);
 export const auth = getAuth(app);
-export const firestore = getFirestore(app);
+export const db = getFirestore(app);
 
 const App: React.FC = () => {
 	const [user, loading, error] = useAuthState(auth);
